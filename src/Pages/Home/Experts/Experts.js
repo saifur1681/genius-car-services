@@ -16,7 +16,7 @@ const experts = [
     { id: 4, name: 'kader', img: experts4 },
     { id: 5, name: 'rock', img: experts5 },
     { id: 6, name: 'messi', img: experts6 }
-]
+];
 
 const Experts = () => {
     return (
