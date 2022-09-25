@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Oil change",
+        "price": 100,
+        "description": "",
+        "img": "https://i.ibb.co/8cWjwky/car-parts-repair-garage.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Engine change",
+        "price": 100,
+        "description": "",
+        "img": "https://i.ibb.co/f4SVCQx/car-repairman-wearing-white-uniform-standing-holding-wrench-that-is-essential-tool-mechanic.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Tyre change",
+        "price": 100,
+        "description": "",
+        "img": "https://i.ibb.co/51kx9Pt/car-technician-with-stethoscope-car-showroom.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Mobil change",
+        "price": 100,
+        "description": "",
+        "img": "https://i.ibb.co/m81vRXG/repair-man-making-car-service.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Wash",
+        "price": 100,
+        "description": "",
+        "img": "https://i.ibb.co/gJKX3S8/close-up-hands-unrecognizable-mechanic-doing-car-service-maintenance.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Gas Tank Service",
+        "price": 100,
+        "description": "",
+        "img": "https://i.ibb.co/S5z9pK9/mechanic-hand-checking-fixing-broken-car-car-service-garage.jpg"
+    }
+]

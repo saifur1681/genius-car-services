@@ -1,0 +1,13 @@
+/* .service-container img {
+    width: 430px;
+    height: 230px;
+    border-radius: 10px;
+
+} */
+
+.service-container {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    padding: 3px;
+}
