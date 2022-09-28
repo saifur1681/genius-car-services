@@ -9,8 +9,8 @@ const Footer = () => {
 
     return (
         <footer className="text-center mt-5">
-            <h5>
-                 &copy; {today}
+            <h5 style={{ color: 'green' }} >
+                <span style={{ color: 'red', fontSize:'20px' }}>Copyright &copy;</span> {today}
             </h5>
         </footer>
     );

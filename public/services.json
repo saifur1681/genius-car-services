@@ -1,44 +1,44 @@
 [
     {
         "id": 1,
-        "name": "Oil change",
+        "name": "Oil changing",
         "price": 100,
-        "description": "",
+        "description": "An oil change service, however, is the changing of the oil; plus a safety inspection that examines the oil filter, cabin filter, a check of brake pads, tires, fluids, etc.",
         "img": "https://i.ibb.co/8cWjwky/car-parts-repair-garage.jpg"
     },
     {
         "id": 2,
-        "name": "Engine change",
-        "price": 100,
-        "description": "",
+        "name": "Engine Diadnostic",
+        "price": 250,
+        "description": "Car diagnostic tests scan your car's components and systems to check for issues with components like the engine, transmission, oil tank, throttle, and many more.",
         "img": "https://i.ibb.co/f4SVCQx/car-repairman-wearing-white-uniform-standing-holding-wrench-that-is-essential-tool-mechanic.jpg"
     },
     {
         "id": 3,
-        "name": "Tyre change",
-        "price": 100,
-        "description": "",
+        "name": "Whell Alignment",
+        "price": 300,
+        "description": "Wheel alignment, or tracking, is a standard auto maintenance service where the angles of the wheels are adjusted or readjusted to meet the vehicle maker's specifications.",
         "img": "https://i.ibb.co/51kx9Pt/car-technician-with-stethoscope-car-showroom.jpg"
     },
     {
         "id": 4,
-        "name": "Mobil change",
-        "price": 100,
-        "description": "",
+        "name": "Brake Reparing",
+        "price": 180,
+        "description": "We'll schedule you right away to have one of our expert, ASE certified, brake repair mechanics fully inspect your entire brake system and use NAPA parts.",
         "img": "https://i.ibb.co/m81vRXG/repair-man-making-car-service.jpg"
     },
     {
         "id": 5,
-        "name": "Wash",
-        "price": 100,
-        "description": "",
+        "name": "Wash and Glassing",
+        "price": 140,
+        "description": "Clean glass not only looks better, it helps you drive better. ... A little preventative maintenance will take the aggravation out of window cleaning.",
         "img": "https://i.ibb.co/gJKX3S8/close-up-hands-unrecognizable-mechanic-doing-car-service-maintenance.jpg"
     },
     {
         "id": 6,
-        "name": "Gas Tank Service",
-        "price": 100,
-        "description": "",
+        "name": "Complete Analysis",
+        "price": 450,
+        "description": "A motor vehicle service or tune-up is a series of maintenance procedures carried out at a ... A complete service history usually adds to the resale value of a vehicle.",
         "img": "https://i.ibb.co/S5z9pK9/mechanic-hand-checking-fixing-broken-car-car-service-garage.jpg"
     }
 ]
