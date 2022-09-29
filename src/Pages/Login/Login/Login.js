@@ -1,9 +1,10 @@
 import React from 'react';
 import { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -18,9 +19,11 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    let errorElement;
+
     const from = location.state?.from?.pathname || "/";
-
-
 
     const handleLogin = e => {
         e.preventDefault();
@@ -35,36 +38,39 @@ const Login = () => {
         navigate('/register')
     }
 
+    const ResetPassword = async () => {
+        const email = emailRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+    }
+
+    if (error) {
+        errorElement = <p className="text-danger" >Error: {error?.message}  </p>
+            ;
+    }
+
     if (user) {
         navigate(from, { replace: true });
     }
-
-
 
     return (
         <div className="w-50 container mx-auto" >
             <h1 className="text-center text-primary mt-2" >Log in</h1>
             <Form onSubmit={handleLogin} >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
                     <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
+                <Button variant="primary w-50 mx-auto d-block mb-3" type="submit">
+                    Log in
                 </Button>
             </Form>
-            <p>New to Genius Car? <span style={{ cursor: "pointer" }} class="text-danger" onClick={navigateRegister}  >Please Register</span> </p>
+            {errorElement}
+            <p>New to Genius Car? <span style={{ cursor: "pointer" }} class="text-primary" onClick={navigateRegister}  >Please Register</span> </p>
+            <p>Forget Password? <span style={{ cursor: "pointer" }} class="text-primary" onClick={ResetPassword}  >Reset Password</span> </p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../Firebase.init'
 import './Register.css'
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const navigate = useNavigate();
+    const [agree, setAgree] = useState(false);
 
     const [
         createUserWithEmailAndPassword,
@@ -19,7 +21,7 @@ const Register = () => {
         navigate('/login')
     }
 
-    if(user){
+    if (user) {
         navigate('/home')
     }
 
@@ -29,20 +31,31 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        createUserWithEmailAndPassword(email, password);
+        if (agree) {
+            createUserWithEmailAndPassword(email, password);
+        }
+
 
     }
 
     return (
         <div className="register-container">
-            <h2 className="text-center text-primary mt-4" >This is Register</h2>
+            <h2 className="text-center text-primary mt-4" >Register</h2>
             <form onSubmit={handleUserRegister} >
                 <input type="text" name="name" placeholder="Name" required />
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
-                <input type="submit" value="Register" name="submit" />
+                <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
+                {/* <label className={agree ? "ps-2" : "text-danger ps-2"} htmlFor="terms"> Accepts Genius Car Terms and Conditions</label> */}
+                <label className={`ps-2 ${agree ? '' : 'text-danger'}`} htmlFor="terms"> Accepts Genius Car Terms and Conditions</label>
+                <input
+                    disabled={!agree}
+                    className="btn btn-primary w-50 d-block mx-auto mt-3 mb-3" type="submit"
+                    value="Register"
+                    name="submit" />
             </form>
-            <p>Already have an Account? <span style={{ cursor: "pointer" }} class="text-danger" onClick={navigateLogin}  >Please Log in</span> </p>
+            <p>Already have an Account? <span style={{ cursor: "pointer" }} class="text-primary" onClick={navigateLogin}  >Please Log in</span> </p>
+            <SocialLogin></SocialLogin>
         </div>
     );
 };
