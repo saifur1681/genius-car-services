@@ -4,7 +4,10 @@ import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../Firebase.init';
+import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -40,8 +43,17 @@ const Login = () => {
 
     const ResetPassword = async () => {
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-        alert('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('Please enter your email address')
+        }
+    }
+
+    if (loading || sending) {
+        return <Loading></Loading>
     }
 
     if (error) {
@@ -71,6 +83,7 @@ const Login = () => {
             <p>New to Genius Car? <span style={{ cursor: "pointer" }} class="text-primary" onClick={navigateRegister}  >Please Register</span> </p>
             <p>Forget Password? <span style={{ cursor: "pointer" }} class="text-primary" onClick={ResetPassword}  >Reset Password</span> </p>
             <SocialLogin></SocialLogin>
+            <ToastContainer />
         </div>
     );
 };
